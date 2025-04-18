@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMKM Nasi Kuning - Galeri</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header>... (sama dengan index)</header>
+  <section>
+    <h2>Galeri Produk</h2>
+    <div class="gallery-grid" id="gallery-display">
+      <!-- Gallery statis, diisi Admin -->
+    </div>
+  </section>
+  <footer>... (sama dengan index)</footer>
+  <script>
+    // Muat items dari localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('gallery-display');
+      const items = JSON.parse(localStorage.getItem('galleryItems') || '[]');
+      grid.innerHTML = items.map(it => `<img src="${it.url}" alt="${it.caption}" title="${it.caption}"/>`).join('');
+    });
+  </script>
+</body>
+</html>
